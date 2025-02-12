@@ -168,6 +168,9 @@ def train(
     from axolotl.cli.cloud import do_cli_train
 
     if "use_ray" in kwargs and kwargs["use_ray"]:
+        import ray
+        import os
+        ray.init(runtime_env={"working_dir": "/home/ray/default/axolotl", "py_executable": "uv run --extra flash-attn --extra deepspeed", "env_vars": {"HF_TOKEN": os.getenv("HF_TOKEN", "empty"), "HF_HUB_ENABLE_HF_TRANSFER": "1"}})
         accelerate = False
     if sweep:
         # load the sweep configuration yaml file

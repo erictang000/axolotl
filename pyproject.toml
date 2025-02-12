@@ -18,6 +18,9 @@ Repository = "https://github.com/axolotl-ai-cloud/axolotl.git"
 
 [tool.setuptools_scm]
 
+[tool.uv]
+no-build-isolation-package = ["flash-attn"]
+
 [tool.setuptools]
 py-modules = ["setuptools_axolotl_dynamic_dependencies"]
 include-package-data = true
